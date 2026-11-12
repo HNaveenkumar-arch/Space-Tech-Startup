@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpaceNet - Commander Dashboard</title>
+
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="commander.css">
+</head>
+
+<body>
+
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+
+            <a href="index.html"><img src="./asset/green_logo1.webp" alt="logo" class="logo"></a>
+            <div class="dashboard-badge">Commander Dashboard</div>
+        </div>
+
+        <div class="nav-menu">
+            <div class="nav-item active" onclick="switchTab('tab-mission', this, 'Mission Overview')"><i
+                    class="fa-solid fa-earth-americas"></i> Mission Overview</div>
+            <div class="nav-item" onclick="switchTab('tab-fleet', this, 'Fleet Management')"><i
+                    class="fa-solid fa-rocket"></i> Fleet Management</div>
+            <div class="nav-item" onclick="switchTab('tab-inventory', this, 'Orbital Inventory')"><i
+                    class="fa-solid fa-boxes-stacked"></i> Orbital Inventory</div>
+            <div class="nav-item" onclick="switchTab('tab-crew', this, 'Crew Operations')"><i
+                    class="fa-solid fa-user-astronaut"></i> Crew Operations</div>
+            <div class="nav-item" onclick="switchTab('tab-comms', this, 'Comms & Signals')"><i
+                    class="fa-solid fa-satellite"></i> Comms & Signals</div>
+            <div class="nav-item" onclick="switchTab('tab-settings', this, 'Command Settings')"><i
+                    class="fa-solid fa-sliders"></i> Command Settings</div>
+        </div>
+
+        <div class="sidebar-profile">
+            <div class="profile-img-box"><i class="fa-solid fa-user-tie"></i></div>
+            <div class="profile-details">
+                <h4 id="sidebarName">Commander</h4>
+                <p id="sidebarEmail">auth@spacenet.com</p>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="main-wrapper">
+
+
+        <header class="top-header">
+            <div class="header-left">
+                <i class="fa-solid fa-bars menu-toggle" onclick="toggleSidebar()"></i>
+                <h2 id="pageTitle" class="page-title">Mission Overview</h2>
+            </div>
+            <div class="header-right">
+                <a href="index.html" class="header-btn btn-home"><i class="fa-solid fa-house"></i> <span>Home</span></a>
+                <button onclick="logout()" class="header-btn btn-logout"><i class="fa-solid fa-power-off"></i>
+                    <span>Logout</span></button>
+            </div>
+        </header>
+
+        <div class="dashboard-body">
+
+            <div id="tab-mission" class="content-tab active">
+                <div class="dashboard-grid">
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-bolt"></i> Live Orbit Snapshot</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-satellite"></i></div>
+                                <div class="stat-info">
+                                    <h4>Active Satellites</h4>
+                                    <h2>1,204</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-gauge-high"></i></div>
+                                <div class="stat-info">
+                                    <h4>Avg Velocity</h4>
+                                    <h2>7.6 km/s</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                                <div class="stat-info">
+                                    <h4>Debris Alerts</h4>
+                                    <h2>12</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                                <div class="stat-info">
+                                    <h4>Uplink Status</h4>
+                                    <h2>99.9%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-chart-area"></i> Trajectory Analytics (Data
+                            Transfer TB/s)</div>
+                        <div style="height: 300px;"><canvas id="dataChart"></canvas></div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-table"></i> Live Telemetry</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Vessel ID</th>
+                                        <th>Altitude</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>SN-Alpha-1</td>
+                                        <td>400 km</td>
+                                        <td><span class="badge bg-green">Stable</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>SN-Beta-9</td>
+                                        <td>412 km</td>
+                                        <td><span class="badge bg-orange">Adjusting</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-spinner"></i> Mission Progress</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Lunar Base Setup</span><span>65%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 65%;"></div>
+                                </div>
+                            </div>
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Mars Rover Deployment</span><span>20%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 20%; background: var(--status-orange);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-camera"></i> Orbital Visuals</div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e3.webp" alt="Sat">
+                                <div class="img-label">LEO Network</div>
+                            </div>
+                            <div class="img-card"><img src="./asset/e4.webp" alt="Station">
+                                <div class="img-label">ISS Module</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-clipboard-list"></i> Critical Tasks</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Debris Avoidance</h4>
+                                    <p>SN-Beta-9 trajectory needs adjustment.</p>
+                                </div><a href="404page.html" class="btn-action"
+                                    style="background:var(--status-red);">Execute</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-stopwatch"></i> Launch Countdown</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-info">
+                                    <h4>Artemis V Launch</h4>
+                                    <h2 style="color:var(--status-orange);">T-Minus 14:22:00</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-info">
+                                    <h4>Payload Weather</h4>
+                                    <h2 style="color:var(--status-green);">GO for Launch</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-meteor"></i> Solar Flare Alerts</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Class X Flare Detected</h4>
+                                    <p>Shielding protocols activated for LEO.</p>
+                                </div><span class="badge bg-red">Active</span>
+                            </div>
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Geomagnetic Storm</h4>
+                                    <p>Expected interference in 2 hours.</p>
+                                </div><span class="badge bg-orange">Warning</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-globe"></i> Deep Space Probes</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Probe</th>
+                                        <th>Distance</th>
+                                        <th>Signal</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Voyager 1</td>
+                                        <td>15B miles</td>
+                                        <td><span class="badge bg-green">Online</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Juno</td>
+                                        <td>Jupiter Orbit</td>
+                                        <td><span class="badge bg-green">Stable</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-fleet" class="content-tab">
+                <div class="dashboard-grid">
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-rocket"></i> Fleet Status Overview</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-rocket"></i></div>
+                                <div class="stat-info">
+                                    <h4>Total Vessels</h4>
+                                    <h2>42</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon" style="color:var(--status-green); background:#dcfce7;"><i
+                                        class="fa-solid fa-check-double"></i></div>
+                                <div class="stat-info">
+                                    <h4>Operational</h4>
+                                    <h2>38</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon" style="color:var(--status-orange); background:#fef3c7;"><i
+                                        class="fa-solid fa-wrench"></i></div>
+                                <div class="stat-info">
+                                    <h4>In Maintenance</h4>
+                                    <h2>4</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-table-list"></i> Maintenance Schedule</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Craft Name</th>
+                                        <th>Class</th>
+                                        <th>Next Service</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Falcon-Heavy-V</td>
+                                        <td>Heavy Lift</td>
+                                        <td>Nov 15, 2026</td>
+                                        <td><span class="badge bg-orange">Scheduled</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Star-Cruiser-1</td>
+                                        <td>Passenger</td>
+                                        <td>Dec 02, 2026</td>
+                                        <td><span class="badge bg-green">Cleared</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-gas-pump"></i> Fleet Fuel Capacity</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Liquid Oxygen (LOX)</span><span>88%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 88%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-clipboard-check"></i> Deployment Readiness
+                        </div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Mars Payload</h4>
+                                    <p>Ready for liftoff in T-12 hrs.</p>
+                                </div><a href="404page.html" class="btn-action">Verify</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-images"></i> Fleet Gallery</div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e5.webp" alt="Engine">
+                                <div class="img-label">Thruster Check</div>
+                            </div>
+                            <div class="img-card"><img src="./asset/e6.webp" alt="Rocket">
+                                <div class="img-label">Pad 39A</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-file-signature"></i> Recent Repair Logs</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Part</th>
+                                        <th>Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Heat Shield</td>
+                                        <td>$2.5M</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nav Sensors</td>
+                                        <td>$850K</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-bugs"></i> Drone Swarm Status</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-info">
+                                    <h4>Repair Drones</h4>
+                                    <h2>15/15 Active</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-info">
+                                    <h4>Recon Drones</h4>
+                                    <h2>4 Deploying</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-oil-can"></i> Orbital Refueling</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Vessel</th>
+                                        <th>ETA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tanker-Alpha</td>
+                                        <td>2 Hours</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tanker-Beta</td>
+                                        <td>Docked</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-map-location-dot"></i> Ship Blueprints</div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e7.webp" alt="BP">
+                                <div class="img-label">Engine Core</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-inventory" class="content-tab">
+                <div class="dashboard-grid">
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-box-open"></i> Critical Shortages</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Component</th>
+                                        <th>Category</th>
+                                        <th>Stock</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Titanium Plating</td>
+                                        <td>Hardware</td>
+                                        <td>12 Units</td>
+                                        <td><span class="badge bg-red">Order Now</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Cryo Fluid</td>
+                                        <td>Consumables</td>
+                                        <td>500 L</td>
+                                        <td><span class="badge bg-orange">Low Stock</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-warehouse"></i> Warehouse Metrics</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-boxes-packing"></i></div>
+                                <div class="stat-info">
+                                    <h4>Total Items</h4>
+                                    <h2>15,420</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-truck-ramp-box"></i></div>
+                                <div class="stat-info">
+                                    <h4>In Transit</h4>
+                                    <h2>3 Shipments</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-weight-hanging"></i> Payload Capacity</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Space Station Cargo</span><span>92% Full</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 92%; background: var(--status-red);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-cart-shopping"></i> Restock Operations</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Titanium Order</h4>
+                                    <p>Draft Purchase Order.</p>
+                                </div><a href="404page.html" class="btn-action">Order</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-microchip"></i> High-Value Components</div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e8.webp" alt="Chip">
+                                <div class="img-label">Quantum CPU</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-truck"></i> Incoming Shipments</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>ETA</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#SHP-99</td>
+                                        <td>Today, 14:00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-wind"></i> Life Support Reserves</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Oxygen Tanks (ISS)</span><span>98%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 98%; background: var(--status-green);"></div>
+                                </div>
+                            </div>
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Water Recyclers</span><span>75%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 75%; background: var(--cyan-blue);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-handshake"></i> Supply Chain Partners</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>AeroSpace Corp</h4>
+                                    <p>Contract Active</p>
+                                </div><span class="badge bg-green">Verified</span>
+                            </div>
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Global Thrusters</h4>
+                                    <p>Pending Renewal</p>
+                                </div><span class="badge bg-orange">Review</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-clock-rotate-left"></i> Recent Shipments</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Cargo</th>
+                                        <th>Delivered</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>MRE Rations</td>
+                                        <td>Yesterday</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Solar Panels</td>
+                                        <td>2 Days Ago</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-crew" class="content-tab">
+                <div class="dashboard-grid">
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-users"></i> Crew Overview</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-user-astronaut"></i></div>
+                                <div class="stat-info">
+                                    <h4>Active Astronauts</h4>
+                                    <h2>24</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-globe"></i></div>
+                                <div class="stat-info">
+                                    <h4>Currently in Space</h4>
+                                    <h2>6</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-bed"></i></div>
+                                <div class="stat-info">
+                                    <h4>On Recovery</h4>
+                                    <h2>2</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-address-book"></i> Astronaut Roster</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Role</th>
+                                        <th>Location</th>
+                                        <th>Health</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Cmdr. Sarah Jenkins</td>
+                                        <td>Pilot</td>
+                                        <td>ISS</td>
+                                        <td><span class="badge bg-green">Optimal</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Eng. Raj Patel</td>
+                                        <td>Mechanic</td>
+                                        <td>Earth</td>
+                                        <td><span class="badge bg-orange">Fatigued</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-file-medical"></i> Medical Approvals</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Raj Patel</h4>
+                                    <p>Requesting 2 days rest.</p>
+                                </div><a href="404page.html" class="btn-action">Approve</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-dumbbell"></i> Training Progress</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Mars Mission Team</span><span>85%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 85%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-bullhorn"></i> Command Announcements</div>
+                        <p style="color: var(--text-muted); line-height: 1.6;">Briefing for the upcoming Artemis supply
+                            run is scheduled for Friday 0900 Hrs. Attendance is mandatory.</p>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-camera-retro"></i> Crew Gallery</div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e9.webp" alt="Suit">
+                                <div class="img-label">EVA Suit Test</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-brain"></i> Crew Psychological Health</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>ISS Team Morale</span><span>95%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 95%; background: var(--status-green);"></div>
+                                </div>
+                            </div>
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Lunar Base Isolation Stress</span><span>15%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 15%; background: var(--cyan-blue);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-person-walking-arrow-right"></i> Space Walk
+                            (EVA) Logs</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Astronaut</th>
+                                        <th>Duration</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>S. Jenkins</td>
+                                        <td>4h 12m</td>
+                                    </tr>
+                                    <tr>
+                                        <td>M. Rivera</td>
+                                        <td>2h 45m</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-utensils"></i> Crew Nutrition Plans</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Protein Synthesis</h4>
+                                    <p>Menu updated for ISS.</p>
+                                </div><span class="badge bg-green">Synced</span>
+                            </div>
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Vitamin Supplements</h4>
+                                    <p>Lunar base running low.</p>
+                                </div><a href="404page.html" class="btn-action">Restock</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-comms" class="content-tab">
+                <div class="dashboard-grid">
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-satellite-dish"></i> Signal Overview</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-wifi"></i></div>
+                                <div class="stat-info">
+                                    <h4>Deep Space Network</h4>
+                                    <h2>Active</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-stopwatch"></i></div>
+                                <div class="stat-info">
+                                    <h4>Latency (Mars)</h4>
+                                    <h2>12.4 min</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-list-ul"></i> Interstellar Ping Logs</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Relay Node</th>
+                                        <th>Destination</th>
+                                        <th>Signal Strength</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Relay-Alpha</td>
+                                        <td>Lunar Gateway</td>
+                                        <td>98%</td>
+                                        <td><span class="badge bg-green">Excellent</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Relay-Voyager</td>
+                                        <td>Outer Rim</td>
+                                        <td>5%</td>
+                                        <td><span class="badge bg-red">Critical</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-server"></i> Bandwidth Usage</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Video Telemetry</span><span>75%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-sliders"></i> Frequency Tuning</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Band X Alignment</h4>
+                                    <p>Interference detected.</p>
+                                </div><a href="404page.html" class="btn-action">Auto-Tune</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-radar"></i> Array Visuals</div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e10.webp" alt="Dish">
+                                <div class="img-label">Goldstone Array</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-lock"></i> Encrypted Messages</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Sender</th>
+                                        <th>Time</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Director</td>
+                                        <td>08:00 AM</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-shield-halved"></i> Uplink Security</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-info">
+                                    <h4>Encryption Protocol</h4>
+                                    <h2 style="color:var(--status-green);">AES-4096</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-info">
+                                    <h4>Intrusion Attempts</h4>
+                                    <h2>0 Blocked</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-key"></i> Key Management</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Rotate SSH Keys</h4>
+                                    <p>Last rotated 30 days ago.</p>
+                                </div><a href="404page.html" class="btn-action"
+                                    style="background:var(--status-orange);">Rotate</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-broadcast-tower"></i> Tower Infrastructure
+                        </div>
+                        <div class="image-grid">
+                            <div class="img-card"><img src="./asset/e11.webp" alt="Tower">
+                                <div class="img-label">Relay Station 5</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tab-settings" class="content-tab">
+                <div class="dashboard-grid">
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-id-card"></i> Commander Clearance Profile</div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-user-shield"></i></div>
+                                <div class="stat-info">
+                                    <h4>Authorization</h4>
+                                    <h2>Level 9 (Omega)</h2>
+                                </div>
+                            </div>
+                            <div class="stat-box">
+                                <div class="stat-icon"><i class="fa-solid fa-at"></i></div>
+                                <div class="stat-info">
+                                    <h4>Registered Comms</h4>
+                                    <h2 id="setEmail" style="font-size:1.1rem; word-break:break-all;">auth@spacenet.com
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-user-secret"></i> Access Logs</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>IP Address</th>
+                                        <th>Location</th>
+                                        <th>Time</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>192.168.1.105</td>
+                                        <td>Houston, TX</td>
+                                        <td>Today, 08:00 AM</td>
+                                        <td><span class="badge bg-green">Granted</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>45.22.19.10</td>
+                                        <td>Unknown</td>
+                                        <td>Yesterday</td>
+                                        <td><span class="badge bg-red">Blocked</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-bell"></i> System Alerts</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Collision Warnings</h4>
+                                </div><input type="checkbox" checked
+                                    style="width:20px; height:20px; accent-color: var(--cyan-blue);">
+                            </div>
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Weather Anomalies</h4>
+                                </div><input type="checkbox" checked
+                                    style="width:20px; height:20px; accent-color: var(--cyan-blue);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-database"></i> System Backup Status</div>
+                        <div class="progress-list">
+                            <div class="prog-item">
+                                <div class="prog-head"><span>Mainframe Clone</span><span>99%</span></div>
+                                <div class="prog-bg">
+                                    <div class="prog-fill" style="width: 99%; background: var(--status-green);"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-link"></i> API Integrations</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>NASA Data Stream</h4>
+                                </div><span class="badge bg-green">Active</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up"
+                        style="border-color: #fecaca; background: #fff1f2;">
+                        <div class="section-title" style="color: var(--status-red); border-bottom-color:#fecaca;"><i
+                                class="fa-solid fa-triangle-exclamation"></i> Danger Zone</div>
+                        <p style="color: var(--text-dark); margin-bottom: 20px; font-size: 0.9rem;">Initiating Protocol
+                            Zero will wipe all local telemetry data.</p>
+                        <button onclick="window.location.href='404page.html'" class="header-btn"
+                            style="background:var(--status-red); color:#fff; border:none; width: 100%; justify-content: center;">Initiate
+                            Protocol Zero</button>
+                    </div>
+
+
+                    <div class="premium-card card-full" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-robot"></i> Automated Protocols</div>
+                        <div class="action-list" style="display: flex; flex-direction: row; flex-wrap: wrap;">
+                            <div class="action-item" style="flex: 1; min-width: 250px;">
+                                <div class="action-text">
+                                    <h4>Auto-Dodge Debris</h4>
+                                    <p>AI maneuvers satellites.</p>
+                                </div>
+                                <input type="checkbox" checked
+                                    style="width:20px; height:20px; accent-color: var(--cyan-blue);">
+                            </div>
+                            <div class="action-item" style="flex: 1; min-width: 250px;">
+                                <div class="action-text">
+                                    <h4>Auto-Sleep Mode</h4>
+                                    <p>Conserve power in eclipse.</p>
+                                </div>
+                                <input type="checkbox" checked
+                                    style="width:20px; height:20px; accent-color: var(--cyan-blue);">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-users-gear"></i> Sub-Commander Access</div>
+                        <div class="table-responsive">
+                            <table class="premium-table">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Permission</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Lt. Reed</td>
+                                        <td>Read-Only</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dr. Vance</td>
+                                        <td>Full Access</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="premium-card card-half" data-aos="fade-up">
+                        <div class="section-title"><i class="fa-solid fa-microchip"></i> Firmware Updates</div>
+                        <div class="action-list">
+                            <div class="action-item">
+                                <div class="action-text">
+                                    <h4>Core Engine V2.1</h4>
+                                    <p>Available for download.</p>
+                                </div><a href="404page.html" class="btn-action">Update</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const isAuthenticated = localStorage.getItem('isAuthenticated');
+            const storedEmail = localStorage.getItem('userEmail');
+            const userRole = localStorage.getItem('userRole');
+
+
+            if (!isAuthenticated || !storedEmail || userRole !== 'commander') {
+                alert("Restricted Access! Commander clearance required.");
+                window.location.replace("login.html");
+                return; 
+            }
+
+
+            if (typeof AOS !== 'undefined') {
+                AOS.init({ duration: 800, once: true, offset: 50, disable: 'mobile' });
+            }
+
+
+            let extractedName = storedEmail.split('@')[0];
+            extractedName = extractedName.charAt(0).toUpperCase() + extractedName.slice(1);
+
+            const sideName = document.getElementById("sidebarName");
+            const sideEmail = document.getElementById("sidebarEmail");
+            if (sideName) sideName.textContent = "Cmdr. " + extractedName;
+            if (sideEmail) sideEmail.textContent = storedEmail;
+
+            const setEmail = document.getElementById("setEmail");
+            if (setEmail) setEmail.textContent = storedEmail;
+
+
+            initChart();
+        });
+
+
+        window.toggleSidebar = function () {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            sidebar.classList.toggle('mobile-open');
+
+            if (sidebar.classList.contains('mobile-open')) {
+                overlay.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            } else {
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        };
+
+
+        window.switchTab = function (tabId, element, pageTitle) {
+
+            document.querySelectorAll('.content-tab').forEach(tab => tab.classList.remove('active'));
+
+            document.querySelectorAll('.nav-item').forEach(nav => nav.classList.remove('active'));
+
+
+            document.getElementById(tabId).classList.add('active');
+            element.classList.add('active');
+
+
+            document.getElementById('pageTitle').innerText = pageTitle;
+
+
+            if (typeof AOS !== 'undefined' && window.innerWidth > 992) {
+                setTimeout(() => { AOS.refresh(); }, 100);
+            }
+
+
+            if (window.innerWidth <= 992) { toggleSidebar(); }
+        };
+
+
+        window.logout = function () {
+            localStorage.removeItem('isAuthenticated');
+            localStorage.removeItem('userEmail');
+            localStorage.removeItem('userRole');
+            window.location.href = "login.html";
+        };
+
+
+        function initChart() {
+            const ctx = document.getElementById('dataChart');
+            if (ctx && typeof Chart !== 'undefined') {
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['00:00', '04:00', '08:00', '12:00', '16:00', '20:00', '24:00'],
+                        datasets: [{
+                            label: 'Data Transfer (TB/s)',
+                            data: [1.2, 1.5, 3.4, 8.8, 5.2, 2.1, 1.8],
+                            borderColor: '#00d2ff',
+                            backgroundColor: 'rgba(0, 210, 255, 0.1)',
+                            borderWidth: 3,
+                            fill: true,
+                            tension: 0.4, 
+                            pointBackgroundColor: '#0ef174',
+                            pointBorderColor: '#020610',
+                            pointRadius: 5
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: { legend: { display: false } },
+                        scales: {
+                            y: { beginAtZero: true, grid: { color: '#e2e8f0', borderDash: [5, 5] } },
+                            x: { grid: { display: false } }
+                        },
+                        animation: { duration: 2000, easing: 'easeOutQuart' }
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

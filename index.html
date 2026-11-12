@@ -1,0 +1,1252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tech Startup</title>
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="common.css">
+</head>
+
+<body class="no-scroll">
+
+
+    <div class="loader-wrapper" id="loader">
+        <div class="space-loader">
+            <div class="orbit"></div>
+            <span class="rocket">🚀</span>
+        </div>
+        <div class="loader-text">Loading Universe...</div>
+    </div>
+
+
+    <header class="navbar" id="navbar">
+        <div class="nav-container">
+
+            <a href="index.html" class="logo" data-aos="fade-right" data-aos-delay="100">
+                <img src="./asset/green_logo1.webp" alt="logo">
+            </a>
+
+
+            <nav class="nav-menu">
+                <ul class="nav-list">
+                    <li class="nav-item" data-aos="fade-down" data-aos-delay="200"><a href="index.html"
+                            class="nav-link active">Home</a></li>
+                    <li class="nav-item" data-aos="fade-down" data-aos-delay="300"><a href="about.html"
+                            class="nav-link">About</a></li>
+                    <li class="nav-item" data-aos="fade-down" data-aos-delay="500"><a href="service.html"
+                            class="nav-link">Service</a></li>
+                    <li class="nav-item" data-aos="fade-down" data-aos-delay="400"><a href="blog.html"
+                            class="nav-link">Blog</a></li>
+
+                    <li class="nav-item" data-aos="fade-down" data-aos-delay="600"><a href="contact.html"
+                            class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+
+            <div class="nav-auth">
+                <a href="login.html" class="btn-login" data-aos="fade-left" data-aos-delay="700">Login</a>
+                <a href="signup.html" class="btn-signup" data-aos="fade-left" data-aos-delay="800">Sign Up</a>
+            </div>
+
+
+            <div class="hamburger" id="hamburger" data-aos="zoom-in" data-aos-delay="300">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="mobile-menu" id="mobile-menu">
+        <ul class="mobile-nav-list">
+            <li><a href="index.html" class="mobile-link active">Home</a></li>
+            <li><a href="about.html" class="mobile-link">About</a></li>
+            <li><a href="service.html" class="mobile-link">Service</a></li>
+            <li><a href="blog.html" class="mobile-link">Blog</a></li>
+            <li><a href="contact.html" class="mobile-link">Contact</a></li>
+        </ul>
+        <div class="mobile-auth">
+            <a href="login.html" class="btn-login mobile-btn">Login</a>
+            <a href="script.js" class="btn-signup mobile-btn">Sign Up</a>
+        </div>
+    </div>
+
+
+    <section class="hero-section" id="home">
+
+
+        <div class="stars-overlay"></div>
+
+
+        <div class="hero-slider">
+
+
+            <div class="slide slide-1 active">
+                <div class="slide-bg" style="background-image: url('./asset/e14.webp');"></div>
+
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="badge"><i class="fa-solid fa-satellite-dish"></i> Next-Gen Space Tech</div>
+                        <h1 class="hero-title">Engineering Tomorrow, <br><span class="glow-text">Beyond Earth.</span>
+                        </h1>
+                        <p class="hero-desc">Building next-generation space technologies to connect our planet, explore
+                            new frontiers, and unlock possibilities beyond Earth's boundaries.</p>
+                        <div class="hero-btn-group">
+                            <a href="404page.html" class="btn-primary glow-hover">Explore Technology <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                            <a href="404page.html" class="btn-secondary slide-hover">Discover Mission</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="orbit-ring">
+                            <img src="./asset/e13.webp" alt="Earth" class="floating-obj">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="slide slide-2">
+                <div class="slide-bg" style="background-image: url('./asset/e16.webp');"></div>
+
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <div class="badge"><i class="fa-solid fa-network-wired"></i> Orbital Logistics</div>
+                        <h1 class="hero-title">Pioneering Deep <br><span class="glow-text">Space Comms.</span></h1>
+                        <p class="hero-desc">Deploying advanced satellite networks and communication arrays for
+                            seamless, ultra-fast connectivity across the entire cosmos.</p>
+                        <div class="hero-btn-group">
+                            <a href="404page.html" class="btn-primary glow-hover">View Projects <i
+                                    class="fa-solid fa-arrow-right"></i></a>
+                            <a href="404page.html" class="btn-secondary slide-hover">Contact Us</a>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                        <div class="orbit-ring">
+                            <img src="./asset/e8.webp" alt="Satellite" class="floating-obj">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="tech-section" id="technologies">
+        <div class="tech-container">
+
+
+            <div class="section-header" data-aos="fade-up">
+                <h4 class="sub-heading">Innovation Grid</h4>
+                <h2 class="gradient-heading">Our Space Technologies</h2>
+                <p class="section-desc">Pioneering the next frontier with cutting-edge aerospace engineering and deep
+                    space capabilities.</p>
+            </div>
+
+
+            <div class="bento-grid">
+
+
+                <div class="bento-card card-large tilt-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-bg" style="background-image: url('./asset/e15.webp');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-box"><i class="fa-solid fa-satellite"></i></div>
+                        <h3>Satellite Engineering</h3>
+                        <p>Next-generation orbital satellites designed for high-resolution imaging and global
+                            communication.</p>
+                        <a href="404page.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bento-card card-tall tilt-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-bg" style="background-image: url('./asset/e18.webp');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-box"><i class="fa-solid fa-rocket"></i></div>
+                        <h3>Rocket Propulsion</h3>
+                        <p>Advanced reusable booster technology.</p>
+                        <a href="404page.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bento-card card-small tilt-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-bg" style="background-image: url('./asset/e2.webp');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-box"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <h3>Space Comm</h3>
+                        <a href="404page.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bento-card card-small tilt-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-bg" style="background-image: url('./asset/e17.webp');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-box"><i class="fa-solid fa-robot"></i></div>
+                        <h3>AI & Robotics</h3>
+                        <a href="404page.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bento-card card-wide tilt-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-bg" style="background-image: url('./asset/e10.webp');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-box"><i class="fa-solid fa-globe"></i></div>
+                        <h3>Earth Observation</h3>
+                        <p>Real-time climate tracking and geospatial intelligence.</p>
+                        <a href="404page.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="bento-card card-wide tilt-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-bg" style="background-image: url('./asset/e11.webp');"></div>
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="icon-box"><i class="fa-solid fa-user-astronaut"></i></div>
+                        <h3>Exploration Systems</h3>
+                        <p>Life support habitats and deep space rover modules.</p>
+                        <a href="404page.html" class="explore-link">Explore <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="journey-section" id="process">
+
+        <div class="journey-header">
+            <h4 class="sub-heading">Orbital Journey</h4>
+            <h2 class="gradient-heading">How We Work</h2>
+            <p class="section-desc">From initial discovery to deep space deployment, explore the 5 stages of our
+                aerospace engineering process.</p>
+        </div>
+
+
+        <div class="journey-pin-container">
+
+
+            <div class="journey-track">
+
+
+                <div class="orbit-path-container">
+                    <div class="orbit-path-base"></div>
+                    <div class="orbit-path-progress"></div>
+                </div>
+
+
+                <div class="stage-card">
+                    <div class="stage-number">01</div>
+                    <div class="stage-img">
+                        <img src="./asset/e4.webp" alt="Research">
+                    </div>
+                    <div class="stage-content">
+                        <h3>Research & Discovery</h3>
+                        <p>Analyzing cosmic environments, gravitational mapping, and feasibility studies for mission
+                            success.</p>
+                    </div>
+                </div>
+
+
+                <div class="stage-card">
+                    <div class="stage-number">02</div>
+                    <div class="stage-img">
+                        <img src="./asset/e15.webp" alt="Concept">
+                    </div>
+                    <div class="stage-content">
+                        <h3>Concept Development</h3>
+                        <p>Creating orbital mechanics models, architectural blueprints, and propulsion concepts.</p>
+                    </div>
+                </div>
+
+
+                <div class="stage-card">
+                    <div class="stage-number">03</div>
+                    <div class="stage-img">
+                        <img src="./asset/e19.webp" alt="Engineering">
+                    </div>
+                    <div class="stage-content">
+                        <h3>Engineering & Design</h3>
+                        <p>Building aerospace-grade hardware, AI robotics systems, and life-support modules.</p>
+                    </div>
+                </div>
+
+
+                <div class="stage-card">
+                    <div class="stage-number">04</div>
+                    <div class="stage-img">
+                        <img src="./asset/e18.webp" alt="Testing">
+                    </div>
+                    <div class="stage-content">
+                        <h3>Testing & Validation</h3>
+                        <p>Subjecting prototypes to extreme vacuum, thermal shocks, and zero-G simulations.</p>
+                    </div>
+                </div>
+
+
+                <div class="stage-card">
+                    <div class="stage-number">05</div>
+                    <div class="stage-img">
+                        <img src="./asset/e5.webp" alt="Deployment">
+                    </div>
+                    <div class="stage-content">
+                        <h3>Mission Deployment</h3>
+                        <p>Successful launch, satellite constellation integration, and deep space active monitoring.</p>
+                    </div>
+                </div>
+
+
+                <div class="track-end-spacer"></div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="mission-section" id="missions">
+        <div class="mission-container">
+
+
+            <div class="section-header" data-aos="fade-up">
+                <h4 class="sub-heading">Mission Gallery</h4>
+                <h2 class="gradient-heading">Featured Space Missions</h2>
+                <p class="section-desc">Explore our active projects and deep space initiatives pushing the boundaries of
+                    human exploration.</p>
+            </div>
+
+
+            <div class="gallery-grid">
+
+
+                <div class="featured-display" id="featured-display" data-aos="fade-right">
+                    <div class="featured-img-container">
+                        <img src="./asset/e6.webp" alt="Lunar Exploration" id="featured-img">
+                    </div>
+
+                    <div class="featured-overlay"></div>
+
+                    <div class="featured-content" id="featured-content">
+                        <div class="badge"><i class="fa-solid fa-moon"></i> Active Mission</div>
+                        <h3 id="featured-title">Lunar Exploration Initiative</h3>
+                        <p id="featured-desc">Establishing a sustainable human presence and advanced research habitats
+                            on the lunar surface.</p>
+                        <a href="404page.html" class="btn-primary glow-hover mt-15">View Details <i
+                                class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+
+                <div class="mission-list" data-aos="fade-left">
+
+
+                    <div class="mission-item active" data-index="0">
+                        <div class="mission-icon"><i class="fa-solid fa-moon"></i></div>
+                        <div class="mission-info">
+                            <h4>Lunar Exploration Initiative</h4>
+                            <p>Lunar surface habitat building.</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </div>
+
+
+                    <div class="mission-item" data-index="1">
+                        <div class="mission-icon"><i class="fa-solid fa-satellite"></i></div>
+                        <div class="mission-info">
+                            <h4>Advanced Satellite Network</h4>
+                            <p>High-speed planetary connectivity.</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </div>
+
+
+                    <div class="mission-item" data-index="2">
+                        <div class="mission-icon"><i class="fa-solid fa-tower-broadcast"></i></div>
+                        <div class="mission-info">
+                            <h4>Deep Space Communication</h4>
+                            <p>Interstellar data transmission.</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </div>
+
+
+                    <div class="mission-item" data-index="3">
+                        <div class="mission-icon"><i class="fa-solid fa-robot"></i></div>
+                        <div class="mission-info">
+                            <h4>Autonomous Space Robotics</h4>
+                            <p>AI-driven rovers and repair bots.</p>
+                        </div>
+                        <i class="fa-solid fa-chevron-right arrow-icon"></i>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="tech-innovation-section" id="innovation">
+        <div class="innovation-container">
+
+
+            <div class="section-header" data-aos="fade-up">
+                <h4 class="sub-heading">Inside Our Innovation</h4>
+                <h2 class="gradient-heading">Advanced Technology</h2>
+                <p class="section-desc">Discover the core systems and intelligent mechanics that power our deep space
+                    missions without the need for manual intervention.</p>
+            </div>
+
+
+            <div class="tech-split-layout">
+
+
+                <div class="tech-visual" data-aos="fade-right">
+                    <div class="hologram-projector"></div>
+                    <img src="./asset/e8.webp" alt="3D Spacecraft" class="spacecraft-hologram">
+                </div>
+
+
+                <div class="tech-nodes-grid" data-aos="fade-left">
+
+
+                    <div class="tech-node">
+                        <div class="node-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>AI Navigation</h3>
+                        <p>Machine learning algorithms autonomously map cosmic terrains and avoid orbital debris in
+                            real-time.</p>
+                        <div class="node-glow-line"></div>
+                    </div>
+
+
+                    <div class="tech-node">
+                        <div class="node-icon"><i class="fa-solid fa-plane-up"></i></div>
+                        <h3>Flight Systems</h3>
+                        <p>Self-correcting gyroscope arrays ensure complete stability during hyper-velocity planetary
+                            travel.</p>
+                        <div class="node-glow-line"></div>
+                    </div>
+
+
+                    <div class="tech-node">
+                        <div class="node-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+                        <h3>Ion Propulsion</h3>
+                        <p>Next-generation plasma thrusters that significantly reduce fuel mass while providing
+                            continuous thrust.</p>
+                        <div class="node-glow-line"></div>
+                    </div>
+
+
+                    <div class="tech-node">
+                        <div class="node-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                        <h3>Smart Comms</h3>
+                        <p>Quantum-encrypted laser arrays enabling ultra-low latency data transfer across millions of
+                            miles.</p>
+                        <div class="node-glow-line"></div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="impact-section" id="impact">
+
+
+        <div class="stars-overlay"></div>
+
+        <div class="impact-container">
+
+
+            <div class="section-header" data-aos="fade-up">
+                <h4 class="sub-heading">Transforming Our Planet</h4>
+                <h2 class="gradient-heading">Space Impact</h2>
+                <p class="section-desc">Harnessing the power of orbital networks to revolutionize industries and protect
+                    Earth's future.</p>
+            </div>
+
+
+            <div class="impact-interactive">
+
+
+                <svg class="connecting-lines" viewBox="0 0 1000 600" preserveAspectRatio="none">
+
+                    <path class="animated-line" d="M 250 150 L 500 300" />
+
+                    <path class="animated-line" d="M 750 150 L 500 300" />
+
+                    <path class="animated-line" d="M 250 450 L 500 300" />
+
+                    <path class="animated-line" d="M 750 450 L 500 300" />
+                </svg>
+
+
+                <div class="center-globe-wrapper">
+                    <div class="impact-pulse-ring ring-1"></div>
+                    <div class="impact-pulse-ring ring-2"></div>
+                    <div class="impact-pulse-ring ring-3"></div>
+                    <img src="./asset/e13.webp" alt="Earth Globe" class="rotating-earth">
+                </div>
+
+
+                <div class="impact-panel panel-tl">
+                    <div class="panel-icon"><i class="fa-solid fa-cloud-sun-rain"></i></div>
+                    <div class="panel-content">
+                        <h3>Climate Monitoring</h3>
+                        <p>Real-time atmospheric data tracking to combat climate change.</p>
+                    </div>
+                    <div class="panel-glow-border"></div>
+                </div>
+
+
+                <div class="impact-panel panel-tr">
+                    <div class="panel-icon"><i class="fa-solid fa-earth-americas"></i></div>
+                    <div class="panel-content">
+                        <h3>Global Connectivity</h3>
+                        <p>Providing ultra-fast, uncensored internet to remote global regions.</p>
+                    </div>
+                    <div class="panel-glow-border"></div>
+                </div>
+
+
+                <div class="impact-panel panel-bl">
+                    <div class="panel-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <div class="panel-content">
+                        <h3>Disaster Management</h3>
+                        <p>Early warning systems for tsunamis, hurricanes, and wildfires.</p>
+                    </div>
+                    <div class="panel-glow-border"></div>
+                </div>
+
+
+                <div class="impact-panel panel-br">
+                    <div class="panel-icon"><i class="fa-solid fa-seedling"></i></div>
+                    <div class="panel-content">
+                        <h3>Agricultural Intelligence</h3>
+                        <p>Geospatial crop monitoring for sustainable food production.</p>
+                    </div>
+                    <div class="panel-glow-border"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="innovation-lab-section" id="research">
+
+
+        <div class="lab-grid-bg"></div>
+
+        <div class="lab-container">
+
+
+            <div class="lab-top-row">
+
+
+                <div class="lab-visual">
+                    <div class="lab-img-wrapper">
+                        <img src="./asset/e20.webp" alt="Space Research Laboratory" class="parallax-lab-img">
+                        <div class="lab-img-overlay"></div>
+                    </div>
+
+                    <div class="floating-tech-badge">
+                        <i class="fa-solid fa-microscope"></i> R&D Facility
+                    </div>
+                </div>
+
+
+                <div class="lab-content">
+                    <h4 class="sub-heading">Innovation Lab</h4>
+                    <h2 class="gradient-heading">Research & Development</h2>
+                    <p class="section-desc">Pushing the boundaries of theoretical physics and applied engineering to
+                        build the future of interstellar travel and sustainable orbital infrastructure. Our labs operate
+                        24/7, testing materials under extreme zero-gravity conditions.</p>
+
+                    <ul class="lab-features-list">
+                        <li><i class="fa-solid fa-check-circle"></i> ISO Certified Space Labs</li>
+                        <li><i class="fa-solid fa-check-circle"></i> AI-Assisted Prototyping</li>
+                        <li><i class="fa-solid fa-check-circle"></i> Zero-G Simulation Chambers</li>
+                    </ul>
+
+                    <a href="404page.html" class="btn-primary glow-hover mt-15">Tour The Lab <i
+                            class="fa-solid fa-arrow-right"></i></a>
+                </div>
+
+            </div>
+
+
+            <div class="lab-bottom-row">
+
+
+                <div class="research-panel panel-1">
+                    <div class="res-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="res-info">
+                        <h3>Next-Gen Propulsion</h3>
+                        <p>Testing plasma and ion thrusters for faster, fuel-efficient deep space travel.</p>
+                    </div>
+                    <div class="res-glow-line"></div>
+                </div>
+
+
+                <div class="research-panel panel-2">
+                    <div class="res-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="res-info">
+                        <h3>Space-Based AI</h3>
+                        <p>Developing neural networks capable of autonomous decision-making in orbit.</p>
+                    </div>
+                    <div class="res-glow-line"></div>
+                </div>
+
+
+                <div class="research-panel panel-3">
+                    <div class="res-icon"><i class="fa-solid fa-solar-panel"></i></div>
+                    <div class="res-info">
+                        <h3>Sustainable Tech</h3>
+                        <p>Creating closed-loop life support systems and advanced solar energy arrays.</p>
+                    </div>
+                    <div class="res-glow-line"></div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <section class="team-section" id="experts">
+        <div class="team-container">
+
+
+            <div class="section-header" data-aos="fade-up">
+                <h4 class="sub-heading">Meet The Minds</h4>
+                <h2 class="gradient-heading">Our Experts</h2>
+                <p class="section-desc">The brilliant scientists, engineers, and visionaries driving our mission to
+                    conquer the cosmos.</p>
+            </div>
+
+
+            <div class="team-grid">
+
+
+                <div class="team-col col-left" data-aos="fade-right" data-aos-delay="200">
+                    <div class="team-card card-small">
+                        <img src="./asset/e21.webp" alt="Dr. Priya Sharma" class="team-img">
+                        <div class="team-overlay">
+                            <div class="team-info">
+                                <h3>Dr. Priya Sharma</h3>
+                                <p class="team-role">Chief Technology Officer</p>
+                                <div class="team-social">
+                                    <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="404page.html"><i class="fa-brands fa-x-twitter"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="team-col col-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="team-card card-large">
+
+                        <div class="founder-glow"></div>
+                        <img src="./asset/e22.webp" alt="Arjun Mehta" class="team-img">
+                        <div class="team-overlay">
+                            <div class="team-info">
+                                <h3>Arjun Mehta</h3>
+                                <p class="team-role">Founder & CEO</p>
+                                <div class="team-social">
+                                    <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="404page.html"><i class="fa-brands fa-x-twitter"></i></a>
+                                    <a href="404page.html"><i class="fa-solid fa-envelope"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="team-col col-right">
+
+                    <div class="team-card card-small" data-aos="fade-left" data-aos-delay="300">
+                        <img src="./asset/e23.webp" alt="Rahul Verma" class="team-img">
+                        <div class="team-overlay">
+                            <div class="team-info">
+                                <h3>Rahul Verma</h3>
+                                <p class="team-role">Aerospace Engineer</p>
+                                <div class="team-social">
+                                    <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="404page.html"><i class="fa-brands fa-github"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-card card-small mt-30" data-aos="fade-left" data-aos-delay="400">
+                        <img src="./asset/e24.webp" alt="Ananya Rao" class="team-img">
+                        <div class="team-overlay">
+                            <div class="team-info">
+                                <h3>Ananya Rao</h3>
+                                <p class="team-role">Research Scientist</p>
+                                <div class="team-social">
+                                    <a href="404page.html"><i class="fa-brands fa-linkedin-in"></i></a>
+                                    <a href="404page.html"><i class="fa-solid fa-flask"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <section class="final-cta-section" id="contact">
+
+
+        <div class="cta-bg-wrapper">
+            <img src="./asset/e1.webp" alt="Astronaut looking at Earth" class="cta-parallax-bg">
+        </div>
+
+
+        <div class="stars-overlay"></div>
+        <div class="cta-overlay-gradient"></div>
+
+
+        <div class="cta-center-glow"></div>
+
+        <div class="cta-container">
+
+            <div class="cta-content">
+                <h2 class="cta-heading gs-reveal">
+                    THE FUTURE IS NOT A DISTANCE. <br>
+                    IT'S OUR <span class="gradient-text glow-text">DESTINATION.</span>
+                </h2>
+
+                <p class="cta-desc gs-reveal">
+                    Be part of the next generation of space innovation. Together, let's build technologies that take
+                    humanity further.
+                </p>
+
+                <div class="cta-btn-group gs-reveal">
+                    <a href="404page.html" class="btn-primary cta-btn glow-hover">
+                        <i class="fa-solid fa-handshake"></i> Partner With Us
+                    </a>
+                    <a href="404page.html" class="btn-secondary cta-btn slide-hover">
+                        <i class="fa-solid fa-headset"></i> Contact Our Team
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+
+    <footer class="footer">
+
+        <div class="footer-glow-line"></div>
+
+        <div class="footer-container">
+
+
+            <div class="footer-col brand-col" data-aos="fade-up" data-aos-delay="100">
+                <a href="index.html" class="logo">
+                    <img src="./asset/green_logo1.webp" alt="logo">
+                </a>
+                <p class="footer-text">
+                    Pioneering the future of space exploration with advanced propulsion, satellite tech, and orbital
+                    logistics.
+                </p>
+                <div class="social-links">
+                    <a href="404page.html"><i class="fab fa-facebook-f"></i></a>
+                    <a href="404page.html"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="404page.html"><i class="fab fa-instagram"></i></a>
+                    <a href="404page.html"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="200">
+                <h4>Quick Links</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="service.html"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="blog.html"><i class="fas fa-chevron-right"></i> Space Blog</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="300">
+                <h4>Our Technologies</h4>
+                <ul class="footer-links">
+                    <li><a href="404page.html"><i class="fas fa-chevron-right"></i> Satellite Imaging</a></li>
+                    <li><a href="404page.html"><i class="fas fa-chevron-right"></i> Orbital Logistics</a></li>
+                    <li><a href="404page.html"><i class="fas fa-chevron-right"></i> Propulsion Systems</a></li>
+                    <li><a href="404page.html"><i class="fas fa-chevron-right"></i> Deep Space Comms</a></li>
+                    <li><a href="404page.html"><i class="fas fa-chevron-right"></i> Rover Robotics</a></li>
+                </ul>
+            </div>
+
+
+            <div class="footer-col" data-aos="fade-up" data-aos-delay="400">
+                <h4>Contact Us</h4>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p>MMR Complex, Chinna Thirupathi,<br> near Chinna Muniyappan Kovil,<br> Salem - 636008</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone-alt"></i>
+                        <p>+91 98765 43210<br>+91 87654 32109</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>info@thestackly.com</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="footer-bottom">
+            <p>&copy; 2026 NovaTech Space Systems. All rights reserved.</p>
+            <div class="footer-bottom-links">
+                <a href="404page.html">Privacy Policy</a>
+                <a href="404page.html">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+
+    <script src="script.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            gsap.to(".orbit-ring", {
+                y: "-=20",
+                duration: 4,
+                ease: "sine.inOut",
+                yoyo: true,
+                repeat: -1
+            });
+
+
+            const slides = document.querySelectorAll(".slide");
+            let currentSlide = 0;
+            const slideDuration = 6000;
+
+            function animateSlideIn(index) {
+                const slide = slides[index];
+                const badge = slide.querySelector(".badge");
+                const title = slide.querySelector(".hero-title");
+                const desc = slide.querySelector(".hero-desc");
+                const btns = slide.querySelector(".hero-btn-group");
+                const visual = slide.querySelector(".orbit-ring");
+
+
+                gsap.to(slide, { autoAlpha: 1, duration: 1 });
+
+
+                gsap.fromTo(badge, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", delay: 0.2 });
+                gsap.fromTo(title, { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.3 });
+                gsap.fromTo(desc, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.5 });
+                gsap.fromTo(btns, { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out", delay: 0.7 });
+
+
+                if (visual) {
+                    gsap.fromTo(visual,
+                        { scale: 0.8, opacity: 0, rotation: 30 },
+                        { scale: 1, opacity: 1, rotation: 0, duration: 1.2, ease: "back.out(1.2)", delay: 0.5 }
+                    );
+                }
+            }
+
+            function animateSlideOut(index) {
+                gsap.to(slides[index], { autoAlpha: 0, duration: 1 });
+            }
+
+            function nextSlide() {
+                animateSlideOut(currentSlide);
+                currentSlide = (currentSlide + 1) % slides.length;
+                animateSlideIn(currentSlide);
+            }
+
+
+            gsap.set(slides, { autoAlpha: 0 });
+            animateSlideIn(currentSlide);
+            setInterval(nextSlide, slideDuration);
+        });
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            VanillaTilt.init(document.querySelectorAll(".tilt-card"), {
+                max: 5,               
+                speed: 400,          
+                glare: true,          
+                "max-glare": 0.15,   
+                scale: 1.02           
+            });
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+
+                let mm = gsap.matchMedia();
+
+
+
+
+                mm.add("(min-width: 993px)", () => {
+                    const track = document.querySelector(".journey-track");
+                    const pinContainer = document.querySelector(".journey-pin-container");
+                    const progressLine = document.querySelector(".orbit-path-progress");
+
+
+
+                    let scrollWidth = track.scrollWidth - window.innerWidth;
+
+                    let tl = gsap.timeline({
+                        scrollTrigger: {
+                            trigger: ".journey-section",
+                            pin: ".journey-pin-container", 
+                            start: "center center",
+                            end: `+=${scrollWidth}`, 
+                            scrub: 1, 
+                        }
+                    });
+
+
+                    tl.to(track, {
+                        x: -scrollWidth,
+                        ease: "none"
+                    }, 0);
+
+
+                    tl.to(progressLine, {
+                        width: "100%",
+                        ease: "none"
+                    }, 0);
+                });
+
+
+
+
+                mm.add("(max-width: 992px)", () => {
+                    const progressLine = document.querySelector(".orbit-path-progress");
+
+
+                    gsap.to(progressLine, {
+                        height: "100%",
+                        ease: "none",
+                        scrollTrigger: {
+                            trigger: ".journey-track",
+                            start: "top center",
+                            end: "bottom center",
+                            scrub: 1
+                        }
+                    });
+                });
+            }
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            const missionData = [
+                {
+                    title: "Lunar Exploration Initiative",
+                    desc: "Establishing a sustainable human presence and advanced research habitats on the lunar surface.",
+                    badgeIcon: "fa-moon",
+                    imgSrc: "./asset/e6.webp"
+                },
+                {
+                    title: "Advanced Satellite Network",
+                    desc: "Deploying low-orbit constellations to provide high-speed, secure planetary connectivity.",
+                    badgeIcon: "fa-satellite",
+                    imgSrc: "./asset/e7.webp"
+                },
+                {
+                    title: "Deep Space Communication",
+                    desc: "Pioneering interstellar data transmission using laser arrays and quantum relay technology.",
+                    badgeIcon: "fa-tower-broadcast",
+                    imgSrc: "./asset/e9.webp"
+                },
+                {
+                    title: "Autonomous Space Robotics",
+                    desc: "Developing AI-driven rovers and repair drones for zero-gravity maintenance and exploration.",
+                    badgeIcon: "fa-robot",
+                    imgSrc: "./asset/e12.webp"
+                }
+            ];
+
+            const missionItems = document.querySelectorAll(".mission-item");
+            const featuredImg = document.getElementById("featured-img");
+            const featuredTitle = document.getElementById("featured-title");
+            const featuredDesc = document.getElementById("featured-desc");
+            const featuredBadge = document.querySelector(".featured-content .badge");
+
+
+            missionData.forEach(data => {
+                const img = new Image();
+                img.src = data.imgSrc;
+            });
+
+            missionItems.forEach((item, index) => {
+
+
+                const updateGallery = () => {
+
+
+                    if (item.classList.contains("active")) return;
+
+
+                    missionItems.forEach(el => el.classList.remove("active"));
+
+
+                    item.classList.add("active");
+
+                    const data = missionData[index];
+
+
+                    gsap.timeline()
+                        .to(["#featured-img", "#featured-content"], {
+                            opacity: 0,
+                            scale: 0.95,
+                            duration: 0.3,
+                            ease: "power2.in",
+                            onComplete: () => {
+
+                                featuredImg.src = data.imgSrc;
+                                featuredTitle.textContent = data.title;
+                                featuredDesc.textContent = data.desc;
+                                featuredBadge.innerHTML = `<i class="fa-solid ${data.badgeIcon}"></i> Active Mission`;
+                            }
+                        })
+                        .to(["#featured-img", "#featured-content"], {
+                            opacity: 1,
+                            scale: 1,
+                            duration: 0.5,
+                            ease: "back.out(1.2)"
+                        });
+                };
+
+                item.addEventListener("mouseenter", updateGallery);
+                item.addEventListener("click", updateGallery); 
+            });
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+
+                let tlTech = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".tech-innovation-section",
+                        start: "top 75%", 
+                        toggleActions: "play none none reverse" 
+                    }
+                });
+
+
+                tlTech.fromTo(".tech-visual",
+                    { opacity: 0, scale: 0.7, y: 50 },
+                    { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "back.out(1.5)" }
+                )
+
+
+                    .fromTo(".tech-node",
+                        { opacity: 0, y: 50, rotationX: -15 }, 
+                        {
+                            opacity: 1,
+                            y: 0,
+                            rotationX: 0,
+                            duration: 0.8,
+                            stagger: 0.2, 
+                            ease: "power3.out"
+                        },
+                        "-=0.6" 
+                    );
+            }
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+                let tlImpact = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".impact-section",
+                        start: "top 70%", 
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+
+                tlImpact.fromTo(".center-globe-wrapper",
+                    { scale: 0, opacity: 0, rotation: -90 },
+                    { scale: 1, opacity: 1, rotation: 0, duration: 1.2, ease: "back.out(1.2)" }
+                )
+
+
+                    .fromTo(".connecting-lines",
+                        { opacity: 0 },
+                        { opacity: 1, duration: 0.5 },
+                        "-=0.5"
+                    )
+
+
+                    .fromTo(".panel-tl", { opacity: 0, x: -50, y: -50 }, { opacity: 1, x: 0, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.3")
+                    .fromTo(".panel-tr", { opacity: 0, x: 50, y: -50 }, { opacity: 1, x: 0, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.5")
+                    .fromTo(".panel-bl", { opacity: 0, x: -50, y: 50 }, { opacity: 1, x: 0, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.5")
+                    .fromTo(".panel-br", { opacity: 0, x: 50, y: 50 }, { opacity: 1, x: 0, y: 0, duration: 0.7, ease: "power3.out" }, "-=0.5");
+            }
+
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+
+
+                gsap.to(".parallax-lab-img", {
+                    y: "10%", 
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".lab-img-wrapper",
+                        start: "top bottom", 
+                        end: "bottom top", 
+                        scrub: true         
+                    }
+                });
+
+
+                let labTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".innovation-lab-section",
+                        start: "top 75%",
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+
+                labTl.fromTo(".lab-visual", { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 1, ease: "power3.out" })
+                    .fromTo(".lab-content", { opacity: 0, x: 50 }, { opacity: 1, x: 0, duration: 1, ease: "power3.out" }, "-=0.8")
+
+
+                    .fromTo(".research-panel",
+                        { opacity: 0, y: 40 },
+                        { opacity: 1, y: 0, duration: 0.8, stagger: 0.2, ease: "power3.out" },
+                        "-=0.4"
+                    );
+            }
+
+        });
+
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            if (typeof ScrollTrigger !== 'undefined') {
+                gsap.registerPlugin(ScrollTrigger);
+
+
+                gsap.to(".cta-parallax-bg", {
+                    y: "15%", 
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: ".final-cta-section",
+                        start: "top bottom",
+                        end: "bottom top",
+                        scrub: true
+                    }
+                });
+
+
+                let ctaTl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: ".final-cta-section",
+                        start: "top 60%", 
+                        toggleActions: "play none none reverse"
+                    }
+                });
+
+
+                const revealElements = document.querySelectorAll(".final-cta-section .gs-reveal");
+
+                ctaTl.fromTo(revealElements,
+                    { opacity: 0, y: 40 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 1,
+                        stagger: 0.2, 
+                        ease: "power3.out"
+                    }
+                );
+            }
+        });
+
+    </script>
+</body>
+
+</html>
